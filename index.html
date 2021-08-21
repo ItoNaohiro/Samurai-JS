@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScriptの練習</title>
+</head>
+<body>
+    
+    <h1>JavaScript練習</h1>
+    
+    <script>
+        //ここにJavaScriptを記述する
+         
+        let myname = '伊藤尚大';
+        
+        let myage = 22;
+        
+        console.log('初めまして、' + myname + 'です。');
+        
+        console.log( myage + '歳です、よろしくお願いします!');
+        
+        
+        const cart1 = ['Kindle Fire HD 10',19980,1];
+        
+        console.log(cart1[1]);
+        
+        //配列の要素数を表示する
+        console.log(cart1.length);
+        
+        //複数の商品がカートに入っている場合
+        const cart2 = [
+            ['Kindle Fire 10 HD',19980,1],
+            ['プログラミングの本',1500,1],
+            ['ミネラルウォーター',280,3],
+            ['スマホケース',1800,2],
+            ['液晶テレビ',35000,1],
+            ];
+            
+        console.log(cart2.length);
+        
+        //乱数を取り出す
+        const number1 = Math.random() * 10;
+        
+        const number2 = Math.floor(Math.random() * 10);
+        
+        console.log(number1);
+        
+        console.log(number2);
+        
+        //配列内の要素をランダムに取り出す
+        const janken = ['グー','チョキ','パー'];
+        
+        const rand = Math.floor(Math.random() * janken.length);
+        
+        console.log(janken[rand]);
+        
+        //カート内の商品の詳細を表示する
+        const cart3 = ['Kindle Fire HD 10',19980,1];
+        
+        console.log('商品名 : ' + cart3[0]);
+        
+        console.log('価格 : ' + cart3[1] + '円');
+        
+        console.log('個数 : ' + cart3[2]);
+        
+        //配列に要素を追加
+        cart3.push(100);
+        
+        console.log(cart3.length);
+        
+        console.log(cart3);
+        
+        
+        //filterを使って"空白"を除いた要素を表示する
+        const userID = ['user34','user18','user55','','user38'];
+        
+        const result1 = userID.filter( element => {
+            
+            return element !== '' ;
+            
+        });
+        
+        console.log(result1);
+        
+        //mapを使って新しい配列を作成する
+        const myNumber = ['田中太郎','佐藤一郎','山田次郎'];
+        
+        const result2 = myNumber.map( element => {
+            
+            return element + 'さん';
+            
+        })
+        
+        console.log(result2);
+        
+        //forEachを使って配列データをすべて表示する
+        const user = ['田中太郎' , '佐藤一郎' , '山田次郎' , '伊藤花子'];
+        
+        user.forEach( element => {
+            
+            console.log(element);
+            
+        })
+        
+        //問題１ おみくじアプリの作成
+        const omikuzi = ['大吉','小吉','吉','凶'];
+        
+        const rand1 = Math.floor(Math.random() * omikuzi.length);
+        
+        console.log(omikuzi[rand1]);
+        
+        //const rand2 = (1 * omikuzi.length);
+        
+        //console.log(omikuzi[rand2]);
+        
+        //等価演算子と厳密等価演算時
+        console.log('5' == 5); //true 値が同じ
+        
+        console.log('5' ===5); //false　値・データ型が同じ
+       
+        //if分の使い方
+        const user1 = ['田中太郎' , '佐藤一郎' , '山田三郎' , '伊藤花子'];
+        
+        user1.forEach(name => {
+            if(name === '田中太郎'){
+                
+                console.log(user1[0] + 'さんは存在します。')
+            }
+            
+            else if(name === '山田花子'){
+                
+                console.log('山田花子さんは存在します。');
+            }
+            
+            else if(name === '山田三郎'){
+                
+                console.log('山田三郎さんは存在します。');
+            }
+            
+            else {
+                
+                console.log('該当するユーザーは存在しません。');
+            }
+        })
+        
+        //三項演算子
+        user1.forEach(name => {
+            
+            name === '山田三郎' ? console.log('存在します。') : false;
+            
+        })
+        
+        //switchの使い方
+        
+        user1.forEach(name => {
+            
+            switch(name) {
+                case '田中太郎':
+                    console.log(name + 'は営業部 第一課です。');
+                    break;
+                    
+                case '山田次郎':
+                    console.log(name + 'は製造部 生産管理課です。');
+                    break;
+                
+                default:
+                    console.log(name + 'は該当データがありません。');
+            }
+        })
+        
+        //ダイエットアプリ
+        const weight = 55 ;
+        
+        if (weight <= 60){
+            console.log("あなたの体重は、" + weight + "kgです。");
+            
+            console.log('ダイエット成功です!');
+        }
+        
+        else if (weight < 70){
+            console.log('ついにここまで来ましたね');
+        }
+        
+        else if (weight < 80){
+            console.log('確実に成果が出ていますよ');
+        }
+        
+        else if (weight >= 80){
+            console.log('もっと頑張りましょう')
+        }
+        
+        const animal = ['犬' , '猫' , '牛' , 'ライオン' , '豚'];
+            
+            switch(animal) {
+                case '犬':
+                    console.log('ワンワン!');
+                    break;
+                    
+                case '猫':
+                    console.log('にゃーん!');
+                    break;
+                    
+                case '牛':
+                    console.log('モー!');
+                    break;
+                    
+                case 'ライオン':
+                    console.log('ガオー!');
+                    break;
+                    
+                case '豚':
+                    console.log('ブー!');
+                    break;
+                    
+                default:
+                console.log('該当する鳴き声がありません');
+            }
+            
+    //whileの使い方
+    let state = true;
+    
+        while(state) {
+            
+            let random = Math.floor(Math.random() * 10);
+            
+            if(random === 3) state = false; 
+            
+            console.log(random);
+        }
+    
+    console.log("");
+        
+    //forの使い方
+    for ( let i = 0; i < 5; i++ ) {
+        
+        console.log(i);
+    }
+    
+    console.log("");
+    
+    //繰り返し処理を途中で止める(forの場合)
+    for ( let i = 0; i < 5; i++) {
+        
+        console.log(i);
+        
+        if(i === 3) break;
+    }
+    
+    console.log("");
+    
+    //繰り返し処理を途中で止める(whileの場合)
+    let state1 = true;
+    
+    while(state1) {
+        let random = Math.floor(Math.random() * 10);
+        
+        if(random === 3) break;
+        
+        console.log(random);
+    }
+    
+    console.log("");
+    
+    //continueの使い方
+    for ( let i = 0; i < 10; i++) {
+        if(i % 2 === 0) continue;
+        
+        console.log(i);
+    }
+    
+    //ゲーム
+    //let enemy = 10;
+    
+    //let comand;
+    
+    //let random1
+    
+    //while(true) {
+        //comand = prompt('敵が現れた! 【1】攻撃  【2】逃げる');
+        
+        //random1 = Math.floor(Math.random() * 10);
+        
+        //攻撃する場合
+        //if (comand == 1) {
+            
+            //enemy = enemy - random1;
+            
+            //console.log(random1 + 'のダメージ!');
+            
+            //if (enemy <= 0) {
+                //console.log('敵を倒した!');
+                //break;
+            //}
+            
+            //console.log('敵の体力は残り'+ enemy + 'です。');
+        //}
+        
+        //逃げる場合
+        //else if (comand == 2) {
+            
+            //console.log('無事に逃げました。');
+            //break;
+        //}
+    //}
+    
+    //console.log('戦闘終了');
+    
+    
+    //関数使い方
+    function myFunc1() {
+        console.log('これは関数宣言です。');
+    }
+    
+    myFunc1(); //関数の実行
+    
+    const myFunc2 = () => {
+        console.log('これは関数式です。');
+    }
+    
+    myFunc2(); //関数式の実行
+    
+    //関数宣言の上書き
+    function myFunc() {
+        console.log('これは関数宣言です。');
+    }
+    
+    function myFunc() {
+        console.log('これは2回目の関数宣言です。');
+    }
+    
+    myFunc();
+    
+    //関数式のエラー
+    const myFunc3 = () => {
+        console.log('これは関数式です。');
+    }
+    
+    //const myFunc3 = () => {
+    //    console.log('これは2回目の関数式です。');
+    //}
+    
+    myFunc3();
+    
+    //引数の使い方
+    const myFunc4 = (keyword) => {
+        console.log('指定した文字は、「' + keyword + '」ですね？' );
+    }
+    
+    myFunc4('プログラミング');
+    
+    //検索機能
+    const products = ['テレビ' , '冷蔵庫' , '机' , 'スマホ' , '本棚' , '椅子' , 'テーブル'];
+    
+    const search = (items , target) => {
+        
+        const result = items.filter( (item) => item === target);
+        
+        if(result.length) {
+            console.log('商品が見つかりました!');
+        }
+        else {
+            console.log('お探しの商品は見つかりませんでした。');
+        }
+        
+    }
+    
+    search(products , 'スマホ')
+    
+    //戻り値
+    const myNumber1 = 10;
+    
+    const getDouble = (number3) => {
+        return number3 * 2;
+    }
+    
+    console.log(getDouble(myNumber1));
+    //どういう処理がされているかがわからない　return number3 * 2の意味が分からない
+    
+    //オブジェクト
+    const user2 = {
+        
+        name: '太郎',
+        age: 30,
+        area: '東京'
+        
+    };
+    
+    console.log(user2);
+    
+    console.log(user2.name);
+    
+    console.log(user2.age);
+    
+    console.log(user2.area);
+    
+    //プロパティを変更する
+    user2.name = '山田太郎';
+    
+    const user3 = {
+        
+        name: '田中次郎',
+        age: 25,
+        area: '京都'
+    }
+    
+    //プロパティを新規追加
+    user3.hobby = '映画鑑賞';
+    
+    //プロパティの削除
+    delete user3.area ;
+    
+    console.log(user3);
+    
+    //メソッド
+    const user4= {
+        
+        name: '加藤三郎',
+        age: 35,
+        
+        getName: function() {
+            console.log(this.name);
+        }
+    }
+    
+    user4.getName();
+    
+    //thisの使い方の違い
+    const obj = {
+      
+      getThis1: function() { return this },
+    
+      getThis2: () => this
+
+    };
+    
+    console.log(obj.getThis1());
+    console.log(obj.getThis2());
+    
+    
+    //連絡帳アプリ
+    //const user_name = prompt('名前を入力してください');
+    //const user_number = prompt('電話番号を入力してください');
+    
+    //const User = {}
+    
+    //User.name = user_name ;
+    //User.number = user_number;
+    
+    //console.log(User);
+    
+    //classの使い方
+    class Animal {
+        constructor(name, age, type) {
+            
+            this.name = name;
+            this.age = age;
+            this.type = type;
+            
+        }
+    }
+    
+    const dog = new Animal ('犬' , '8' , 'チワワ');
+    
+    console.log(dog);
+    
+    const cat = new Animal ('猫' , '4' , '雑種');
+    
+    console.log(cat);
+    
+    //classを用いたメソッド
+    class Animal1 {
+        constructor(name) {
+            this.name = name;
+        }
+        
+        getName() {
+            return this.name;
+        }
+    }
+    
+    const dog1 = new Animal1 ('犬');
+    
+    console.log(dog1.getName());
+    
+    //継承
+    class Character {
+        constructor(name , hp) {
+            this.name = name;
+            this.hp = hp;
+        }
+        
+        attack() {
+            console.log(this.name + 'の攻撃!');
+        }
+    }
+    
+    class Hero extends Character {
+        control() {}
+        
+        superAttack() {}
+        
+        speak() {}
+        
+    }
+    
+    class Enemy extends Character {
+        
+        dropItem() {}
+        
+        getPoint() {}
+    }
+    
+    const hero = new Hero('主人公' , 100);
+    
+    const enemy = new Enemy('敵' , 10);
+    
+    hero.attack();
+    
+    enemy.attack();
+    
+    console.log(hero);
+    
+    class Hero1 extends Character {
+        constructor(name , hp , exp) {
+            
+            super(name , hp);
+            
+            this.exp = exp;
+        }
+    }
+    
+    const hero1 = new Hero1('主人公' , 100 , 10);
+    
+    console.log(hero1);
+    
+    //問題１
+    class Animal2 {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age + '才';
+        }
+    }
+    
+    class cat1 extends Animal2 {
+        constructor(name , age ,type){
+            
+            super(name , age);
+            
+            this.type = type;
+        }
+    }
+    
+    const Cat = new cat1 ('ミケ' , 10 , 'シャム');
+    
+    console.log(Cat);
+    
+    //問題２
+    class cat2 extends Animal2 {
+        
+        speak() {
+            console.log(this.name + 'が「にゃーん」と鳴きました!')
+        }
+    }
+    
+    const Cat2 = new cat2 ('クロ' , '5' ,'ペルシャ');
+    
+    Cat2.speak();
+    
+    //document
+    </script>
+        
+    <h1> タイトル</h1>
+    
+    <script>
+        console.log(document.head);
+        
+        console.log(document.body);
+        
+        console.log(window);
+        
+    </script>
+    
+    <ul>
+        
+        <li id = "text" class = "sample">1つ目の項目</li>
+        
+        <li class = "sample">2つ目の項目</li>
+        
+    </ul>
+    
+    <script>
+        
+        const text = document.getElementById('text');
+        
+        const li = document.querySelector('li');
+        
+        console.log(text);
+        
+        console.log(li);
+        
+        const sample = document.getElementsByClassName('sample')
+        
+        console.log(sample);
+        
+        const sample1 = document.getElementsByClassName('sample');
+        
+        for(let i=0; i<sample1.length; i++) {
+            console.log(sample1[i]);
+        }
+    </script>
+    
+    <h1>サンプルタイトル</h1>
+        
+    <h2>小見出し1</h2>
+    
+    <script>
+        //HTML要素の追加
+        const h2 = document.createElement('h2');
+        
+        h2.textContent = '小見出し2';
+        
+        document.body.appendChild(h2);
+        
+    </script>
+    
+    <div></div>
+        
+    <script>
+            
+        const div = document.querySelector('div');
+            
+        const h1 = document.createElement('h1');
+            
+        h1.textContent = 'これはh1要素です。';
+            
+        div.appendChild(h1);
+            
+        console.log(document.body);
+            
+    </script>
+        
+        
+    <button id = "btn">実行</button>
+        
+    <script>
+        //イベント
+         const btn = document.getElementById('btn');
+          
+        btn.addEventListener('click', () => {
+                
+        console.log('クリックされました!');
+                
+        });
+            
+    </script>
+    
+    <button id="btn1">追加</button>
+    
+    <ul id="list"></ul>
+    
+    <script>
+        
+        const list = document.getElementById('list');
+        
+        const btn1 = document.getElementById('btn1');
+        
+        btn1.addEventListener('click', () => {
+            
+            const li = document.createElement('li');
+            
+            li.textContent = 'これはリスト要素です。';
+            
+            list.appendChild(li);
+        })
+        
+    </script>
+    
+    <!--form要素-->
+    <form name = "myForm">
+        
+        <input type="text1" name="myText">
+        
+    </form>
+    
+    <button id="btn2">カウント</button>
+    
+    <script>
+    
+    const btn2 = document.getElementById('btn2');
+    
+    btn2.addEventListener("click", () => {
+        const value = document.forms.myForm.myText.value;
+        
+        console.log("入力された文字数は、" + value.length + "文字です。")
+        
+    });
+    
+    </script>
+    
+    <!--ラジオボタン-->
+    <form name = "myForm1">
+        <input type = "radio" name = "area" value = "tokyo" /> 東京
+        <input type = "radio" name = "area" value = "aichi" /> 愛知
+        <input type = "radio" name = "area" value = "osaka" /> 大阪
+    </form>
+    
+    <button id = "btn3">実行</button>
+    
+    <script>
+        
+        const btn3 = document.getElementById('btn3');
+        
+        btn3.addEventListener('click', () => {
+            const form = document.forms.myForm1;
+            
+            console.log(form.area.value);
+        });
+        
+    </script>
+    
+    <!--チェックボックス-->
+    <form name = "myForm2">
+        <label>利用したことのあるosを選択してください</label><br/>
+        
+        <input type = "checkbox" name = "os" value = "windows" /> windows
+        
+        <input type = "checkbox" name = "os" value = "macos" /> Mac os
+        
+        <input type = "checkbox" name = "os" value = "linux" /> Linux
+        
+        <input type = "checkbox" name = "os" value = "ios" /> iOS
+        
+        <input type = "checkbox" name = "os" value = "andoroid" /> Andoroid
+    </form>
+    
+    <button id = "btn4">実行</button>
+    
+    <script>
+        
+        const btn4 = document.getElementById('btn4')
+        
+        btn4.addEventListener('click', () => {
+            const form = document.forms.myForm2;
+            
+            form.os.forEach(item => {
+                
+                if(item.checked) console.log(item.value);
+                
+            })
+        });
+        
+    </script>
+    
+    <!--演習-->
+    <form name = "inputForm">
+        
+        <label>名前 : <input type = "text" name = "name" /></label>
+        
+        <br>
+        
+        <label>メールアドレス : <input type = "e-mail" name = "email" /></label>
+        
+        <br>
+                
+        <label>年齢 : </label>
+        <input type = "radio" name = "age" value = "20代" /> 20代
+        <input type = "radio" name = "age" value = "30代" /> 30代
+        <input type = "radio" name = "age" value = "40代" /> 40代
+        <input type = "radio" name = "age" value = "50代" /> 50代
+
+        <br><br>
+
+        <label>普段使っているスマホは?</label><br>
+        <input type = "checkbox" name = "phone" value = "iPhone" /> iPhone
+        <input type = "checkbox" name = "phone" value = "Android" /> Android
+        <input type = "checkbox" name = "phone" value = "ガラケー" /> ガラケー
+        <input type = "checkbox" name = "phone" value = "その他" /> その他
+    </form>
+    <br>
+    
+    <button id = "btn5">実行</button>
+    
+    <script>
+    
+    const btn5 = document.getElementById('btn5');
+    
+    btn5.addEventListener("click", () => {
+        const form = document.forms.inputForm;
+        
+        console.log(form.name.value);
+        console.log(form.email.value);
+        console.log(form.age.value);
+        
+            
+            form.phone.forEach(item1 => {
+                
+                if(item1.checked) console.log(item1.value);
+                
+            });
+    });
+    </script>
+   
+   <!--非同期処理-->
+    <script>
+        console.log('開始')
+    
+        setTimeout(() => {
+        console.log('処理が完了');
+    }, 2000)
+        
+        console.log('終了');
+    </script>
+    
+    <!--Promise-->
+    <script>
+        const promise = new Promise(resolve => {
+            
+            setTimeout(() => {
+                resolve('処理が完了');
+            }, 2000)
+        });
+        
+        //thenで通知を受け取る
+        promise.then(result => console.log(result));
+    </script>
+    
+    <!--複数の非同期処理-->
+    <script>
+        setTimeout(() => {
+        console.log('1つ目の処理が完了');
+        
+            setTimeout(() => {
+                console.log('2つ目の処理が完了');
+            
+                setTimeout(() => {
+                    console.log('3つ目の処理が完了');
+                }, 2000)
+                
+            }, 2000)
+            
+        }, 2000)
+    </script>
+    
+    <!--promiseで複数の非同期処理-->
+    <script>
+        const promise1 = () => {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('1つ目の処理が完了');
+                }, 2000)
+            }) 
+        }
+        
+        const promise2 = () => {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('2つ目の処理が完了');
+                }, 2000)
+            })
+        }
+        
+        const promise3 = () => {
+            return new Promise(resolve=> {
+                setTimeout(() => {
+                    resolve('3つ目の処理が完了')
+                }, 2000)
+            })
+        }
+        
+        promise1()
+        
+        .then(date => {
+            console.log(date);
+            return promise2();
+        })
+        
+        .then(date => {
+            console.log(date);
+            return promise3();
+        })
+        
+        .then(date => console.log(date))
+    </script>
+    
+    <!--非同期通信-->
+    <script>
+        //const url = 'https://qiita.com/api/v2/tags/javascript/items';
+        
+        //global.fetch(url) ここでエラーが出る　理由がわからないfetch()もglobal.fetch()もダメ
+        //.then(date => date.json())
+        //.then(date => console.log(date))
+        //演習問題も飛ばした、非同期通信が理解できてから行う
+    </script>
+    
+</body>
+</html>
